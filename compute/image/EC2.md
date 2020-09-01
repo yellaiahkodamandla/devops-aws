@@ -1,15 +1,15 @@
 ## activity:
    1. launch ubuntu and windows ec2 machine
-![step1](1.png)
-![step2](2.png)
-![step3](3.png)
-![step4](4.png)
-![step5](5.png)
-![step6](6.png)
-![step7](7.png)
-![step8](8.png)
-![step9](9.png)
-![step10](10.png)
+![step1](image/1.png)
+![step2](image/2.png)
+![step3](image/3.png)
+![step4](image/4.png)
+![step5](image/5.png)
+![step6](image/6.png)
+![step7](image/7.png)
+![step8](image/8.png)
+![step9](image/9.png)
+![step10](image/10.png)
    2. login into ec2 ubuntu and windows machine
 
 ## key note: 
