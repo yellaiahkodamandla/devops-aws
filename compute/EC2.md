@@ -1,6 +1,7 @@
 ## activity:
    1. launch ubuntu and windows ec2 machine
 ![step1](image/1.png)
+![stepec2](image/ec2.png)
 ![step2](image/2.png)
 ![step3](image/3.png)
 ![step4](image/4.png)
