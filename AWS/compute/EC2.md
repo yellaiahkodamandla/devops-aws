@@ -30,7 +30,7 @@
     like hyper-v , vm ware etc
     ``` 
 ![vm](image/virtual-server.JPG)
-   1. what ec2 
+   1. what is ec2 
       * virtual machine as a service in aws
    2. how to launch ec2 machine
       * please follow above steps
