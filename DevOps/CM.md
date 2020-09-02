@@ -14,7 +14,10 @@
       3. its not idempotent
    3. CM tools 
       1. CM tools are idempotent 
-## Ansible and Chef
+## Push based tool (asnible/salt)
+   [Ansible](images/Push.png)
+## Pull Based tool (Chef/Puppet)
+   [Chef](images/Pull.png)
 
 ## Ansible Lab Setup
    1. controler server (linux/Mac)
