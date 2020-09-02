@@ -15,9 +15,9 @@
    3. CM tools 
       1. CM tools are idempotent 
 ## Push based tool (asnible/salt)
-   [Ansible](images/Push.png)
+   ![Ansible](images/Push.png)
 ## Pull Based tool (Chef/Puppet)
-   [Chef](images/Pull.png)
+   ![Chef](images/Pull.png)
 
 ## Ansible Lab Setup
    1. controler server (linux/Mac)
