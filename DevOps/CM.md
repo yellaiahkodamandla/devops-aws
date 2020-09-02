@@ -39,7 +39,7 @@
          ```
           su ansible
          ```
-[ACS](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu)
+[click for ACS installation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu)
 
    2. node(windows/linux/mac)
 
