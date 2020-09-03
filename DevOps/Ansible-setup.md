@@ -1,4 +1,5 @@
 ## Ansible Setup:
+![setup](images/setup.png)
    1. ACS
       1. launch EC2 machine and login
       2. install ansible 
@@ -16,12 +17,14 @@
          ```
          visudo
          ```
-         nano -- ctrl+x and press y and enter
-         vi -- ESC+:wq
+         nano -- ctrl+x and press y and enter \
+         ![sudo permission](images/sudo%20permissions.png)
       5. enable password authentication
          ```
          vi /etc/ssh/sshd_config
          ```
+         for save file ```Esc:wq```
+         ![enable passauthentication](images/enable%20passwordauthentication.png)
       6. restart sshd 
          ```
          systemctl restart sshd
