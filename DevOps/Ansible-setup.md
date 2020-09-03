@@ -13,13 +13,13 @@
          ```
          adduser ansible
          ```
-      4. assign sudo permission 
+      4. assign sudo permission (sudo user means he can do anything(install , remove, etc) except add user and assign privilege) 
          ```
          visudo
          ```
-         nano -- ctrl+x and press y and enter \
+         ```nano -- ctrl+x and press y and enter ```
          ![sudo permission](images/sudo%20permissions.png)
-      5. enable password authentication
+      5. enable password authentication (aws provide by default key based authentication here we need passwordauthentication)
          ```
          vi /etc/ssh/sshd_config
          ```
