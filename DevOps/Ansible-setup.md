@@ -17,7 +17,7 @@
          ```
          visudo
          ```
-         ```nano -- ctrl+x and press y and enter ```
+         for save file```nano -- ctrl+x and press y and enter ```
          ![sudo permission](images/sudo%20permissions.png)
       5. enable password authentication (aws provide by default key based authentication here we need passwordauthentication)
          ```
