@@ -50,9 +50,9 @@
 
 ## __vi__ and __vim__ Editor
    1. open file ```vi filename``` or ```vim fiename```
-   2. save and exit file ```Esc:wq```
-   3. exit file without save content ```Esc:q!``` 
+   2. save and exit from file ```Esc:wq```
+   3. exit from file without save content ```Esc:q!``` 
 ## __nano__ editor 
    1. open file with nano editor using ```nano filename```
-   2. save content and exit file ```ctrl+x Press Y and Enter```
-   3. exit file without save content ```ctrl+x Press N and Enter``` 
+   2. save content and exit from file ```ctrl+x Press Y and Enter```
+   3. exit from file without save content ```ctrl+x Press N and Enter``` 
