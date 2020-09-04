@@ -43,6 +43,6 @@
 ## Inventory
    1. it contains all node Ip address
    2. default inventory file ```/etc/ansible/hosts```
-   3. add 3 node ip address in inventory file
+   3. open file ```vi /etc/ansible/hosts``` add 3 node ip address in inventory file 
    4. run command in ACS for Test connection ```ansible -m ping all``` 
 ![ACS](images/ACS.png) 
