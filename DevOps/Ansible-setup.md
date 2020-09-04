@@ -35,3 +35,13 @@
       2. assign sudo permission
       3. enable password authentication
       4. retstart sshd 
+## establish connection from ACS to Nodes
+   1. login into ACS ```ssh usernameofACS@Ipaddress```
+   2. generate keys ```ssh-keygen``` one-time-activity
+   3. copy the key from ACS to each node ```ssh-copy-id nodeusername@nodeipaddress``` 
+## Inventory
+   1. it contains all node Ip address
+   2. default inventory file ```/etc/ansible/hosts```
+   3. add 3 node ip address in inventory file
+   4. run command in ACS for Test connection ```ansible -m ping all``` 
+[ACS](images/ACS.png) 
