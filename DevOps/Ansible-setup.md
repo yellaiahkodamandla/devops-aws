@@ -36,7 +36,8 @@
       3. enable password authentication
       4. retstart sshd 
 ## establish connection from ACS to Nodes
-   1. login into ACS ```ssh usernameofACS@Ipaddress```
+   1. login into Ansible Control Server ```ssh usernameofACS@ACSIpaddress```
+     eg: ```ssh ansible@172.31.0.5``` 
    2. generate keys ```ssh-keygen``` one-time-activity
    3. copy the key from ACS to each node ```ssh-copy-id nodeusername@nodeipaddress``` 
 ## Inventory
