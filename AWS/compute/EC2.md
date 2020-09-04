@@ -14,7 +14,7 @@
    2. login into ec2 ubuntu and windows machine
 
 ## key note: 
-   1. what physical machine
+   1. what is physical machine
     ```
         Personal computer 
         physical server is designated to a single user
@@ -22,7 +22,7 @@
     ```
  ![vm](image/physical-server.JPG)   
 
-   2.  what virtual machine
+   2.  what is virtual machine
     ```
         multiple VMs run on the same physical hardware
     In this case, the computing resources of a physical server are virtualized and shared among all VMs running on it
