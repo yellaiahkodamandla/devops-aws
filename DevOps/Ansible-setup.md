@@ -49,7 +49,7 @@
 
 
 ## __vi__ and __vim__ Editor
-   1. open file ```vi filename``` and ```vim fiename```
+   1. open file ```vi filename``` or ```vim fiename```
    2. save and exit file ```Esc:wq```
    3. exit file without save content ```Esc:q!``` 
 ## __nano__ editor 
