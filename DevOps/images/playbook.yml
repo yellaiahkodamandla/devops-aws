@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes 
+  tasks:
+  - name: create directory 
+    file:
+      path: /home/ansible/newdir
+      state: directory
+  - name: create file 
+    file:
+      path: /home/ansible/file.txt
+      state: touch 
+
+# mkdir newdir
+# touch file.txt
+      
