@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes 
+  tasks:
+  - name: remove directory 
+    file:
+      path: /home/ansible/newdir
+      state: absent
+  - name: remove file 
+    file:
+      path: /home/ansible/file.txt
+      state: absent 
