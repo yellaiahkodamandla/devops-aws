@@ -8,7 +8,7 @@
       user:
         name: johnd
         state: present 
-     ``` 
+      ``` 
    3. create directory
       ```
       mkdir newdir
@@ -18,7 +18,7 @@
       file:
          path: /home/ansible/newdir
          state: directory
-
+      ```
 ## install java in all nodes
    1. manual commands
       ```
@@ -33,6 +33,7 @@
             name: default-jdk
             update_cahce: yes
             state: present
+      ```
 
 ## apply playbook
    1. login into ACS ```su ansible``` 
