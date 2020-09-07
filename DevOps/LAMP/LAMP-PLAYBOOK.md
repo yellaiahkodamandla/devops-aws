@@ -23,7 +23,7 @@
       update_cache: yes ## apt-get update
     ```
 2. sudo apt install php libapache2-mod-php php-mysql -y
-      ```
+    ```
       - name: install multiple package 
         apt: 
           name: ["php","libapache2-mod-php","php-mysql"]
@@ -50,7 +50,7 @@
           - php
           - libapache2-mod-php
           - php-mysql
-        ```
+    ```
 3. restart apache2 
    ```
    - name: restart apache2 
