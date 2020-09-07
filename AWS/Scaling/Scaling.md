@@ -50,9 +50,9 @@
      ![steps](images/25.png)
       
 ## stress
-   login into machine (Autoscaling group machine)
-   stress is tool
-   we can stress on CPU and RAM artifially 
+   login into machine (Autoscaling group machine) \
+   stress is tool \
+   we can stress on CPU and RAM artificially 
    ```
    sudo apt-get update
    sudo apt-get install stress -y
