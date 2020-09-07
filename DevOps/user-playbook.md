@@ -27,7 +27,7 @@
       ```
    2. commands convert into ansible module 
       ```
-       apt-get update = update_cahce: yes
+       apt-get update and
        apt install default-jdk = 
            apt: 
             name: default-jdk
