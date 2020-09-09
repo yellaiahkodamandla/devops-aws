@@ -1,0 +1,23 @@
+- hosts: all 
+  become: yes 
+  tasks: 
+  - name: install httpd in centos 
+    yum:
+      name: httpd
+      state: present 
+  - name: start httpd service and enable 
+    service: 
+      name: httpd
+      state: started 
+      enabled: yes 
+  - name: install php and php-mysql 
+    yum: 
+      name: "{{ item }}"
+      state: present 
+    with_items: 
+        - php
+        - php-mysql 
+  - name: restart httpd service and enable 
+    service: 
+      name: httpd
+      state: restarted
