@@ -67,6 +67,12 @@
             name: httpd
             state: restarted 
        ``` 
+    5. copy file in /var/www/html/info.php      
+       ```
+       - name: copy file from ACS to centos node 
+         copy: 
+           src: /home/ansible/info.php
+           dest: /var/www/html/info.php
     
            
     
