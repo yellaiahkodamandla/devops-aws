@@ -20,4 +20,5 @@
    ```when: major_release == "18"```
 ## execute only perticlur  ansible node 
    ```when: ansible_nodename == "ip-172-31-41-132"```
+   
  

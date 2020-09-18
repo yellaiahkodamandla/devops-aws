@@ -14,15 +14,14 @@
        - php
        - libapache2-mod-php
        - php-mysql
-  - name: restart apache2 service 
-    service:
-       name: apache2
-       state: restarted 
+    notify: restart apache2 on ubuntu  
   - name: copy file from ACS to all nodes 
     copy: 
       src: /home/ansible/info.php
       dest: /var/www/html/info.php 
-  - name: restart apache2 again 
+    notify: restart apache2 on ubuntu 
+  handlers: 
+  - name: restart apache2 on ubuntu 
     service: 
-      name: apache2 
-      state: restarted
+        name: apache2
+        state: restarted 

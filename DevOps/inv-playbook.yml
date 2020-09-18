@@ -1,0 +1,12 @@
+- hosts: all 
+  become: yes
+  tasks: 
+  - name: install package on ubuntu
+    apt: 
+     name: "{{ package_name }}"
+     state: present 
+    when: ansible_os_family == "Debian" 
+  - name: install package on centos
+    yum: 
+      name: "{{ package_name_centos }}"
+      state: present 
