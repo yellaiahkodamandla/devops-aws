@@ -35,7 +35,7 @@
     notify: update permissions 
   - name: copy service file from ACS to all nodes 
     copy: 
-      src: service
+      src: /home/ansible/service
       dest: /etc/systemd/system/tomcat.service
   - name: deamon reload
     systemd:
@@ -47,20 +47,20 @@
       enabled: yes 
   - name: copy template into all nodes
     template: 
-      src: tomcat-users.xml.j2
+      src: /home/ansible/tomcat-users.xml.j2
       dest: /opt/tomcat/conf/tomcat-users.xml 
   - name: Manager app
     copy: 
-      src: context.xml 
+      src: /home/ansible/context.xml 
       dest: /opt/tomcat/webapps/manager/META-INF/context.xml
   - name: host manager app 
     copy: 
-      src: context.xml
+      src: /home/ansible/context.xml
       dest: /opt/tomcat/webapps/host-manager/META-INF/context.xml 
   - name: restart tomcat 
     systemd:
         state: restarted
-        name: "{{ appserver }}"
+        name: tomcat
   handlers: 
   - name: update permissions
     shell: | 
