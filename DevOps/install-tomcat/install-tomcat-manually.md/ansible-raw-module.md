@@ -5,7 +5,7 @@
       1. shell
       2. command
       3. raw 
-      4. create user 
+       4. create user 
         ```
          - name: create user
            user: 
