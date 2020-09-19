@@ -6,9 +6,11 @@
       2. command
       3. raw 
       4. create user 
+        ```
          - name: create user
            user: 
              name: tomcat
              state: present 
          - name: create user using command module
            command: sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
+        ```
