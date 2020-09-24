@@ -15,7 +15,7 @@
          ![create IGW](images/vpc7.png)
          ![create IGW](images/vpc8.png)
          ![create IGW](images/vpc9.png)
-           1. attach to VPC 
+           2. attach to VPC 
           ![attach to vpc](images/vpc10.png)
           ![attach to vpc](images/vpc11.png)
 
@@ -26,7 +26,7 @@
               ![create RT](images/vpc12.png)
                1. routed to IGW 
                ![routed to IGW](images/Public-ass-rt.png)
-               ![routed to IGW](images/route.png.png)
+               ![routed to IGW](images/route.png)
 
             2. Private RT: the RT which is not routed to IGW 
                1. create private RT 
