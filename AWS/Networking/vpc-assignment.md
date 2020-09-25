@@ -9,6 +9,7 @@
       2. private subnet 
    5. create security group (grant access to every one)
    6. launch EC2 machine in public and private subnet (skip)
+   7. please follow the document [click here](https://github.com/ABBANAPURI0445/devops-aws/blob/master/AWS/Networking/VPC.md)
    ![vpc](images/vpc.png)
 
 
