@@ -60,4 +60,13 @@
          2. launch ec2 machine in private subnet 
       6. test 
           1. login into public ec2 machine 
+           ![steps](images/ec21.png)
+           ![steps](images/ec22.png)
+           ![steps](images/ec23.png)
+           ![steps](images/ec24.png)
+           ![steps](images/ec25.png)
+           ![steps](images/ec26.png)
+           ![steps](images/ec27.png)
+           ![steps](images/ec28.png)
+           ![steps](images/ec29.png)
           2. login into private ec2 machine
