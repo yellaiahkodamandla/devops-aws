@@ -56,3 +56,8 @@
           ![sg](images/sg3.png)
           ![sg](images/sg4.png)
       5. Ec2(elastic compute cloud) machine 
+         1. launch ec2 machine in public subnet 
+         2. launch ec2 machine in private subnet 
+      6. test 
+          1. login into public ec2 machine 
+          2. login into private ec2 machine
