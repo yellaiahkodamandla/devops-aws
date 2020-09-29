@@ -1,6 +1,6 @@
 ## login 
    1. i can able to login into public 
-   2. i cant login into private ec2 machine(no internet) 
+   2. i not able to login into private ec2 machine(no internet) 
 ## how to login into private ec2 machine 
    ![vpc](images/VPC0.png)
    1. first login into public ec2 machine and from there login into privare ec2 machine 
