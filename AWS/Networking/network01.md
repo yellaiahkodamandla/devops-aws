@@ -5,7 +5,7 @@
    ![vpc](images/VPC0.png)
    1. first login into public ec2 machine and from there login into privare ec2 machine 
    2. here that public ec2 machine called bastian host or jump box 
-  Note: if you want to login into ec2 machine we need key pair , so copy key pair(pem) into public ec2 machine  
+  * Note: if you want to login into ec2 machine we need key pair , so copy key pair(pem) into public ec2 machine  
     ```
     scp -i vpc-key.pem sorce destination(username@publicipaddress:/home/ubuntu)
     eg: 
