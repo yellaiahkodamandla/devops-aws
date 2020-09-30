@@ -1,5 +1,5 @@
 ## VPC Peering 
- ![VPC peering](images/vpcpeering.png)
+ ![VPC peering](images/peer.png)
    1. enable comminication to one vpc to another vpc  
    2. vpc are should be different CIDR 
    3. we can do 
