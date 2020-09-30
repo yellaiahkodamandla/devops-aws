@@ -49,6 +49,11 @@
       ![Peering](images/peering2.png)
    3. select peering connections
       ![peering](images/peering3.png)
-   4. add routes 
+   4. accept the request
+   5. add routes 
        1. in VPC A add VPC B cidr in RT
-       2. in VPC B add VPC A cidr in RT
+       2. in VPC B add VPC A cidr in RT 
+## delete 
+   1. delete peering connection
+   2. delete ec2 machines
+   3. delete vpc's
