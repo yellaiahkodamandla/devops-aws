@@ -17,7 +17,7 @@
          1. goto service
          2. search for IAM
          3. create user 
-      [IAM](https://github.com/ABBANAPURI0445/devops-aws/blob/master/AWS/AWS%20CLI/aws-clI.md)
+      [click here IAM](https://github.com/ABBANAPURI0445/devops-aws/blob/master/AWS/AWS%20CLI/aws-clI.md)
       3. configure aws cli 
          1. open powershell as admin
          2. run below command
@@ -34,7 +34,7 @@
       ```
       aws ec2  delete-vpc --vpc-id vpc-0954ef2199f7e622e
       ``` 
-## create complte VPC 
+## create complete VPC 
    1. create vpc  # vpc-0bb35d7a7d6d3b57d 
       ```
       aws ec2 create-vpc --cidr-block 192.168.0.0/16
