@@ -12,3 +12,7 @@ integrate changes one branch to another branch
 push = fetch(download) + merge 
 and clone , fork 
 ## merge 
+
+push to remote repo 
+undo chnages 
+branch and merging 
