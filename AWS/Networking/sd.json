@@ -1,0 +1,12 @@
+{
+    "Name": "Naresh",
+    "Age": 28,
+    "Ismarried": "yes" ,
+    "cources": ["devops","aws","azure"],
+    "address": {
+        "Hno": "xxxxx",
+        "street": "xxxxx",
+        "landmark": "xxxx",
+        "pincode": "xxxxxx"
+    }
+}

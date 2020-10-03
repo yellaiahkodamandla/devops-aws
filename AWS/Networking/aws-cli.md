@@ -69,5 +69,14 @@
       1. create sg 
          ```
          aws ec2 create-security-group --description "open all" --group-name "allowport" --vpc-id vpc-0bb35d7a7d6d3b57d
-      2. add rules (ingress and engress)
+      2. add rules (ingress and engress) 
+         ```
+         aws ec2 authorize-security-group-ingress  --group-id sg-1234567890abcdef0 --protocol tcp --port 22 --cidr 0.0.0.0/0
+         ```
+         ```
+         aws ec2 authorize-security-group-egress --group-id sg-1234567890abcdef0  IpProtocol=tcp,FromPort=80,ToPort=80, --cidr 0.0.0.0/0
+         ```
    7. launch ec2 machine in public subnet 
+      ```
+      aws ec2  run-instances --image-id  ami-01fee56b22f308154 --instance-type t2.micro --key-name vpc-key --security-group-ids sg-1234567890abcdef0 --subnet-id subnet-00955eb0c40e8842b --associate-public-ip-address
+      ``` 
