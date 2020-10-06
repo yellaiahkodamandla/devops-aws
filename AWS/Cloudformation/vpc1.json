@@ -1,11 +1,41 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "vpc cloudformation",
+    "Parameters" : {
+       "vpccidr": {
+           "Type": "String",
+           "Default": "10.0.0.0/16"
+       },
+       "Publicsubcidr": {
+        "Type": "String",
+        "Default": "10.0.0.0/24"
+       },
+       "privatesubcidr": {
+        "Type": "String",
+        "Default": "10.0.1.0/24"
+       },
+       "Keyname": {
+           "Type": "AWS::EC2::KeyPair::KeyName",
+           "Default": "vpc-key"
+       },
+       "instancetype": {
+           "Type": "String",
+           "Default": "t2.micro"
+       },
+       "publicsubpara": {
+           "Type": "AWS::EC2::Subnet::Id"
+       },
+       "privatesub": {
+        "Type": "AWS::EC2::Subnet::Id"
+       }
+      },
     "Resources": {
         "myVPC": {
             "Type": "AWS::EC2::VPC",
             "Properties": {
-                "CidrBlock": "10.0.0.0/16",
+                "CidrBlock": 
+                { "Ref": "vpccidr" }
+                ,
                 "EnableDnsHostnames": "true",
                 "Tags": [
                     {
@@ -84,7 +114,9 @@
                 "VpcId": {
                     "Ref": "myVPC"
                 },
-                "CidrBlock": "10.0.0.0/24",
+                "CidrBlock": 
+                { "Ref": "Publicsubcidr" }
+                ,
                 "Tags": [
                     {
                         "Key": "Name",
@@ -100,7 +132,9 @@
                 "VpcId": {
                     "Ref": "myVPC"
                 },
-                "CidrBlock": "10.0.1.0/24",
+                "CidrBlock": 
+                { "Ref": "privatesubcidr" }
+                ,
                 "Tags": [
                     {
                         "Key": "Name",
@@ -156,6 +190,52 @@
                 ]
             }
         },
+
+
+
+        "Web1": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": "ami-07a29e5e945228fa1",
+                "InstanceType": "t2.micro",
+                "KeyName": "vpc-key",
+                "NetworkInterfaces": [
+                    {
+                        "AssociatePublicIpAddress": "true",
+                        "DeviceIndex": 0,
+                        "GroupSet": [
+                            {
+                                "Ref": "openall"
+                            }
+                        ],
+                        "SubnetId": {
+                            "Ref": "publicsubpara"
+                        }
+                       
+                
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Appserver"
+                    }
+                ] ,
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "#!/bin/bash",
+                                "sudo apt-get update",
+                                "sudo apt-get install tomcat8 -y"
+                            ]
+                        ]
+                    }
+                }
+
+            }
+        },
         "Web": {
             "Type": "AWS::EC2::Instance",
             "Properties": {
@@ -172,29 +252,31 @@
                             }
                         ],
                         "SubnetId": {
-                            "Ref": "publicsubnet"
-                        },
-                        "Tags": [
-                            {
-                                "Key": "Name",
-                                "Value": "Appserver"
-                            }
-                        ],
-                        "UserData": {
-                            "Fn::Base64": {
-                                "Fn::Join": [
-                                    "/n",
-                                    [
-                                        "#!/bin/bash",
-                                        "sudo apt-get update",
-                                        "sudo apt-get install tomcat8 -y"
-                                    ]
-                                ]
-                            }
+                            "Ref": "privatesub"
                         }
-
+                       
+                
                     }
-                ]
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "webserver"
+                    }
+                ] ,
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "#!/bin/bash",
+                                "sudo apt-get update",
+                                "sudo apt-get install apache2 -y"
+                            ]
+                        ]
+                    }
+                }
+
             }
         }
     }

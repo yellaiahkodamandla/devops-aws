@@ -16,9 +16,15 @@
       2. staging/index area
       3. local repo
       4. remote repo
-      ```
-      git status
-      git add .
-      git commit -m "payment method"
-      git push
-      ```  
+         ```
+         git status
+         git add .
+         git commit -m "payment method"
+         git push
+         ```  
+   3. push code local repo to remote repo : pull latest changes 
+   4. git reset 
+   5. git reset --hard
+   6. git log or git log --oneline
+   7. git checkout commitid 
+   8. git clean 

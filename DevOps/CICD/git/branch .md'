@@ -1,6 +1,5 @@
 1. branch is new line of development 
 2. git branch branchname
-3. 
 integrate changes one branch to another branch 
 3. merge
 4. rebase
@@ -12,7 +11,3 @@ integrate changes one branch to another branch
 push = fetch(download) + merge 
 and clone , fork 
 ## merge 
-
-push to remote repo 
-undo chnages 
-branch and merging 
