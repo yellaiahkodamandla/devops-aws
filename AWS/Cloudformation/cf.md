@@ -37,4 +37,12 @@
    ```
 Note: resource is required building block
 ## using cloudformation create vpc  
-   
+   1. resource
+   2. parameters 
+   3. outputs 
+   4. mappings 
+
+## pending
+   1. drift
+   2. change set
+   3. nested cf template  
