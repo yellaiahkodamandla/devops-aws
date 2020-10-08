@@ -1,6 +1,6 @@
 ## spring-pet clinic
    1. clone 
-   2. build
+   2. build package
    3. junit unit 
        ```
        spring-petclinic//target/surefire-reports/*.xml

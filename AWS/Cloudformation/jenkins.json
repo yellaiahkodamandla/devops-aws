@@ -1,0 +1,351 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "vpc cloudformation",
+    "Mappings": {
+        "RegionMap": {
+            "us-east-1": {
+                "HVM64": "ami-0817d428a6fb68645"
+            },
+            "us-west-1": {
+                "HVM64": "ami-03fac5402e10ea93b"
+            },
+            "us-west-2": {
+                "HVM64": "ami-07a29e5e945228fa1"
+            },
+            "us-east-2": {
+                "HVM64": "ami-0e82959d4ed12de3f"
+            }
+        }
+    },
+    "Parameters": {
+        "vpccidr": {
+            "Type": "String",
+            "Default": "10.0.0.0/16"
+        },
+        "Publicsubcidr": {
+            "Type": "String",
+            "Default": "10.0.0.0/24"
+        },
+        "privatesubcidr": {
+            "Type": "String",
+            "Default": "10.0.1.0/24"
+        },
+        "Keyname": {
+            "Type": "AWS::EC2::KeyPair::KeyName",
+            "Default": "vpc-key"
+        },
+        "instancetype": {
+            "Type": "String",
+            "Default": "t2.micro"
+        },
+        "pubaz": {
+            "Type": "AWS::EC2::AvailabilityZone::Name",
+            "Default": "us-west-2a"
+        },
+        "privateaz": {
+            "Type": "AWS::EC2::AvailabilityZone::Name",
+            "Default": "us-west-2a"
+        }
+    },
+    "Resources": {
+        "myVPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "vpccidr"
+                },
+                "EnableDnsHostnames": "true",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "MyVpc"
+                    }
+                ]
+            }
+        },
+        "igw": {
+            "Type": "AWS::EC2::InternetGateway",
+            "Properties": {
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "IGW"
+                    }
+                ]
+            }
+        },
+        "AttachGateway": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "InternetGatewayId": {
+                    "Ref": "igw"
+                }
+            }
+        },
+        "PublicRT": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "PublicRT"
+                    }
+                ]
+            }
+        },
+        "myRoute": {
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "PublicRT"
+                },
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "GatewayId": {
+                    "Ref": "igw"
+                }
+            }
+        },
+        "PrivateRt": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "PrivateRT"
+                    }
+                ]
+            }
+        },
+        "publicsubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "AvailabilityZone": {
+                    "Ref": "pubaz"
+                },
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "CidrBlock": {
+                    "Ref": "Publicsubcidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "PublicSubnet"
+                    }
+                ]
+            }
+        },
+        "privatesubnet": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "AvailabilityZone": {
+                    "Ref": "privateaz"
+                },
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "CidrBlock": {
+                    "Ref": "privatesubcidr"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "privatesubnet"
+                    }
+                ]
+            }
+        },
+        "PublicSubRT": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "publicsubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "PublicRT"
+                }
+            }
+        },
+        "privatesubnetasscoiateprivateRT": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "privatesubnet"
+                },
+                "RouteTableId": {
+                    "Ref": "PrivateRt"
+                }
+            }
+        },
+        "openall": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Allow http to client host",
+                "VpcId": {
+                    "Ref": "myVPC"
+                },
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "-1",
+                        "FromPort": 0,
+                        "ToPort": 0,
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "SecurityGroupEgress": [
+                    {
+                        "IpProtocol": "-1",
+                        "FromPort": 0,
+                        "ToPort": 0,
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ]
+            }
+        },
+        "app": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": {
+                    "Fn::FindInMap": [
+                        "RegionMap",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        "HVM64"
+                    ]
+                },
+                "InstanceType": "t2.micro",
+                "KeyName": 
+                { "Ref": "Keyname" }
+                ,
+                "NetworkInterfaces": [
+                    {
+                        "AssociatePublicIpAddress": "true",
+                        "DeviceIndex": 0,
+                        "GroupSet": [
+                            {
+                                "Ref": "openall"
+                            }
+                        ],
+                        "SubnetId": {
+                            "Ref": "publicsubnet"
+                        }
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Appserver"
+                    }
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "sudo apt-get update",
+                                "sudo apt-get install openjdk-8-jdk -y",
+                                "wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -",
+                                "sudo sh -c "echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+                                /etc/apt/sources.list.d/jenkins.list"",
+                                "sudo apt-get update",
+                                "sudo apt-get install jenkins -y",
+                                "sudo systemctl start jenkins"
+                            ]
+                        ]
+                    }
+                }
+            }
+        },
+        "Web": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": {
+                    "Fn::FindInMap": [
+                        "RegionMap",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        "HVM64"
+                    ]
+                },
+                "InstanceType": "t2.micro",
+                "KeyName": 
+                { "Ref": "Keyname" },
+                
+                "NetworkInterfaces": [
+                    {
+                        "AssociatePublicIpAddress": "true",
+                        "DeviceIndex": 0,
+                        "GroupSet": [
+                            {
+                                "Ref": "openall"
+                            }
+                        ],
+                        "SubnetId": {
+                            "Ref": "privatesubnet"
+                        }
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "webserver"
+                    }
+                ],
+                "UserData": {
+                    "Fn::Base64": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "#!/bin/bash",
+                                "sudo apt-get update",
+                                "sudo apt-get install apache2 -y"
+                            ]
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Outputs": {
+        "PublicIpapp": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "app",
+                    "PublicIp"
+                ]
+            },
+            "Description": "Server's PublicIp Address"
+        },
+        "PublicIpweb": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "Web",
+                    "PublicIp"
+                ]
+            },
+            "Description": "Server's PublicIp Address"
+        },
+        "vpcid": {
+            "Value": {
+                "Ref": "myVPC"
+            }
+        },
+        "publicsubid": {
+            "Value": {
+                "Ref": "publicsubnet"
+            }
+        }
+    }
+}
