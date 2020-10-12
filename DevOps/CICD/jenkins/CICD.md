@@ -6,7 +6,7 @@
    3. unit test
    4. archive artifactory
    5. you can run other tests functional test , P test
-   6. static code analysis --> code review 
+   6. static code analysis --> code review Sonar
    7. store artifact in repositories (jfrog artifactory/ Nexus)
    8. deploy artifact in multiple ENV (dev , test etc) by using ansible, chef, puppet, shell, powershell 
 ## jenkins 
@@ -30,4 +30,4 @@
    2. build code using maven (install maven)```sudo apt-get install maven -y```
       ```
       mvn package
-      ```
+      ``` 
