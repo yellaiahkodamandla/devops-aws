@@ -1,0 +1,32 @@
+node('maven') {
+    stage('SCM') {
+    git 'https://github.com/wakaleo/game-of-life.git'
+    }
+    stage('Build Package') {
+    sh 'mvn package'
+}
+  stage('Junit') {
+      junit 'gameoflife-web/target/surefire-reports/*.xml'
+  }
+  stage('archive the artifact') {
+      archive 'gameoflife-web/target/gameoflife.war'
+  }
+  stage('Static Code analysis'){
+       // performing sonarqube analysis with "withSonarQubeENV(<Name of Server configured in Jenkins>)"
+    withSonarQubeEnv('sonar1.0') {
+      // requires SonarQube Scanner for Maven 3.2+
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+    }
+ }
+ stage('Artifactory'){
+    sh "curl -u admin:devops123 -T /home/maven/workspace/CI-pipeline/gameoflife-web/target/*.war http://34.221.225.179:8081/artifactory/gol/gameoflife.war"
+}
+}
+node('ansible') {
+    stage('clone the playbook'){
+        git 'http://ansible-playbook.git'
+    }
+    stage('deploy'){
+        sh 'ansible-playbook -i myinv playbook.yml'
+    }
+}
