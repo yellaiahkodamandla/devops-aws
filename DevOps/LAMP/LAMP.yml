@@ -20,7 +20,7 @@
        state: restarted 
   - name: copy file from ACS to all nodes 
     copy: 
-      src: /home/ansible/info.php
+      src: info.php
       dest: /var/www/html/info.php 
   - name: restart apache2 again 
     service: 
