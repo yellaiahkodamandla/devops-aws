@@ -1,0 +1,11 @@
+- hosts: localhost 
+  become: yes
+  tasks: 
+  - name: install tomcat 
+    apt:
+      name: tomcat8 
+      state: present 
+  - name: install apache2 
+    apt: 
+      name: apache2
+      state: present 
