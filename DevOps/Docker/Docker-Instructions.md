@@ -10,8 +10,8 @@
         FROM ubuntu
         CMD ["echo","hello"]
         ```
-   8.  ENTRYPOINT
-   9.  USER
+   8.  ENTRYPOINT: cmd is execute while runing the container , it  define container life time    eg: echo "helo" 
+   9.  USER:   switch user eg: su jenkins
    10.  WORKDIR
    11.  VOLUME
    12.  STOPSIGNAL
