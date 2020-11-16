@@ -6,17 +6,19 @@
    5. COPY: copy from local and deploy into container
    6. EXPOSE: open port in container
    7. CMD: cmd is execute while runing the container , it  define container life time    eg: echo "helo" 
+   * Override the command
         ```
         FROM ubuntu
         CMD ["echo","hello"]
         ```
    8.  ENTRYPOINT: cmd is execute while runing the container , it  define container life time    eg: echo "helo" 
+   * append the command
    9.  USER:   switch user eg: su jenkins
    10.  WORKDIR
    11.  VOLUME
    12.  STOPSIGNAL
-   13.  ARG
-   14.  ENV
+   13.  ARG: you can pass value while building the image
+   14.  ENV: Even after build image you can change values
 
 .net :  dll or exe
 java: war , jar , ear
