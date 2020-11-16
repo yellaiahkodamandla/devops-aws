@@ -12,8 +12,9 @@
   ENTRYPOINT ["echo","hello"]
   ```
 
-
+  ```
   step1: dockerfile
   step2: Buildimage
   step3: Pust to registry (dockerhub/Jfro/ECR)
   step4: image we use in kubernets deployment file  = kubernets 
+  ```
