@@ -1,4 +1,4 @@
-## CMD and ENTRYPOINT 
+## CMD VS ENTRYPOINT
     ``` 
     FROM ubuntu:16.04
     CMD ["echo","hello"]
