@@ -21,9 +21,12 @@
 ![Architecture](images/k8s1.png)
 [click here](https://kubernetes.io/docs/concepts/overview/components/)
 ## Cluster
-   1. Mini kube
-   2. kubeadm cluster (we need to maintain everything)
-   3. EKS cluster (cloud provider)
+   1. Mini kube use case: for testing Manifest files
+   2. kubeadm cluster (we need to maintain everything): use case: DEV, TEST, PreProd
+   3. cloud provider:  Master Node maintain by Cloud Providers Use Case: Production
+      * AWS --- EKS
+      * Azure--- AKS
+      * Google -- GKE
 ## workloads:
    1. Replication controller
    2. Replicaset
