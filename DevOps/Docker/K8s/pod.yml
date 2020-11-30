@@ -1,4 +1,9 @@
-apiVersion:
-Kind:
+apiVersion: v1
+kind: Pod
 metadata:
+  name: pod-example
 spec:
+  containers:
+  - name: appserver
+    image: tomcat:8
+    
