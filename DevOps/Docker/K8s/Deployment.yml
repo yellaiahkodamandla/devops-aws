@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment-app 
+  labels: 
+    deploy: app 
+spec: 
+  replicas: 5 
+  selector: 
+    matchLabels:
+      app: deploy
+  template: 
+    metadata: 
+      name: pod-app
+      labels: 
+        app: deploy
+    spec: 
+      containers: 
+        - image: tomcat:8 
+          name: appserver
+          ports: 
+          - containerPort: 8080
