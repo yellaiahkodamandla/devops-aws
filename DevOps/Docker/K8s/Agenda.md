@@ -10,6 +10,15 @@
        * By using Deployment we can deploy newer version and rollback to older version without any downtime 
        * Deployment internally using Replicaset 
    5. Service: 
-       1. clusterIp
+       1. clusterIp 
        2. NodePort
        3. Loadbalancer 
+   
+   every Pod have IP Address 
+   web pods needs to communicate with App Pod 
+   Service Have Ip address 
+
+   No Pod
+   No RC
+   NO RS 
+   Deployment RS + Pod

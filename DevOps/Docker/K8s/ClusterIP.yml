@@ -1,0 +1,8 @@
+apiVersion: v1
+Kind: Service
+metadata: 
+   name: clusterip
+spec: 
+  selector: 
+    web: server
+  type: ClusterIP
