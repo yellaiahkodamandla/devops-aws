@@ -5,4 +5,5 @@ metadata:
 spec: 
   selector: 
     web: server
-  type: ClusterIP
+  type: ClusterIP 
+  
