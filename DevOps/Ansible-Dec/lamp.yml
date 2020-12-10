@@ -1,0 +1,25 @@
+---
+- hosts: all 
+  become: yes
+  tasks: 
+  - name: install apache2 on ubuntu 
+    apt: 
+       name: apache2
+       update_cache: yes   
+       state: present 
+  - name: install multiple packages using with items 
+    apt: 
+       name: "{{ item }}"
+       state: present 
+    with_items: 
+       - php
+       - libapache2-mod-php
+       - php-mysql  
+  - name: restart apache2 service
+    service: 
+      name: apache2
+      state: restarted 
+  - name: copy file into /var/www/html/info.php 
+    copy: 
+      src: info.php
+      dest: /var/www/html/info.php  
