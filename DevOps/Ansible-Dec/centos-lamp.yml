@@ -1,0 +1,27 @@
+- hosts: all
+  become: yes
+  tasks: 
+  - name: install lamp on centos 
+    yum: 
+     name: httpd 
+     state: present  
+  - name: start and enable service 
+    systemd:
+     name: httpd
+     state: started
+     enabled: yes  
+  - name: install php and php-mysql 
+    yum: 
+     name: "{{ item }}"
+     state: present 
+    loop: 
+     - php
+     - php-mysql
+  - name: restart httpd service
+    service: 
+      name: httpd
+      state: restarted 
+  - name: copy file to nodes 
+    copy: 
+     src: info.php
+     dest: /var/www/html/info.php 
