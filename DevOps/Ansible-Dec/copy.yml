@@ -1,0 +1,7 @@
+- hosts: all
+  become: yes 
+  tasks: 
+  - name: copy file from ACS to nodes 
+    copy: 
+      src: staticfile
+      dest: /home/ansible/static 

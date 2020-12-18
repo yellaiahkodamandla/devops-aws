@@ -67,4 +67,3 @@
 ## Security: 
     1. Network: db we deploy into private subnet 
     2. Sg and NACL -- security layers in aws  
-   
