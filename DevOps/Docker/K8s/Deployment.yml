@@ -9,7 +9,7 @@ spec:
   selector: 
     matchLabels:
       app: deploy
-  template: 
+  template:      
     metadata: 
       name: pod-app
       labels: 
@@ -19,4 +19,12 @@ spec:
         - image: tomcat:8 
           name: appserver
           ports: 
-          - containerPort: 8080
+          - containerPort: 8080 
+
+
+          selfsigning-issuer  
+
+
+
+
+          

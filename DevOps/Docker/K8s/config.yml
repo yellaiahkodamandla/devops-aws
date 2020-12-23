@@ -1,0 +1,30 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01USXhOekF3TXpRd01Gb1hEVE13TVRJeE5UQXdNelF3TUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTWd0CjhJMHdwKzJnOXg3MkJLelVNK0EvdnhNV0pnUTR2UWRTa0p5aTJNZEc2a2pnVkNzOEdhenlRZWtrT2x3d1ZYWWkKNXpNaDhuamM0RDFvM3ExaWlnQ1pxZmJ1RHc3bWRzZitLWmV5RHlRcFY3RWZ2WURTMk8vVTRPMGVQVHA1RHNWcApNQmhHRFU2ZHBCNS9rUmVlK3lXSTJCL2JvZWNOU1llOFlvclZodHBOdWpWbU1jVDU5U2JlSXJCMzZmV29WNHdhCmJhcDArdldLVTRkU2pRcFAyMkpmQWFwaTljSEZMSG50TUxPUzE2eWx4ZStqdnFhYjFHOGxTUlJ2bUM1bDkzKzUKRlgyR1Bxa0M0Y1V6eWJQLzltVkdDN2tMamxqaENnNTlZUUhXRG5yeU5LMHFwS2tZZzVCYko0a014cm02RFhKYgpzV005YWk4VUphdnJtNVlLVlIwQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFKVFV4WjZWd0N4aWVVL1o5akRnRStHL2RUK1gKd0xVRkdJZUEvU25tZG1FNE5RdFhqdFRHU3UxYVIrMHJSb21CN0xoOUI1R3JkdGI2K3liVGRWdmdPeFRldXNacgo3VUJLLzJPVk9oaTQwSE5qRmVTcDVBc0xYWnE1S1RLdE1WS05Od3hnZ3VlYS8vaXU1Vmg5VXcvdWI3ME9WVW5DCk44YzhQWlNRQU8xWU93bnd1cTFoMXgxWG9iTVpPTkVXdXUyN3ZsTnVjcXpxQWMyd1BTdDloVlVKYkE3cE11REoKZmI5QjFWVWVBallQb2JuNURFcXlGVUtHSVJYWHFUdEhxcDNwODN2cUVjZXBIcVowRlkrWHExZDV0emRLS2lZNgoxN0wrUnJRdHhrYUt6TGFNeUVYY2VhYzBKRWE4a1NSWnNlNG45OWVudkY2MkxBMHJGNU5rSVFzRTFrMD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://27B5ABE402238575F0420A422CAF08B9.gr7.us-west-2.eks.amazonaws.com
+  name: my-eks-cluster.us-west-2.eksctl.io
+contexts:
+- context:
+    cluster: my-eks-cluster.us-west-2.eksctl.io
+    user: test@my-eks-cluster.us-west-2.eksctl.io
+  name: test@my-eks-cluster.us-west-2.eksctl.io
+current-context: test@my-eks-cluster.us-west-2.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: test@my-eks-cluster.us-west-2.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - eks
+      - get-token
+      - --cluster-name
+      - my-eks-cluster
+      - --region
+      - us-west-2
+      command: aws
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional

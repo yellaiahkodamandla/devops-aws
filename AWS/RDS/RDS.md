@@ -67,3 +67,28 @@
 ## Security: 
     1. Network: db we deploy into private subnet 
     2. Sg and NACL -- security layers in aws  
+ 
+## Task: 
+   1. create VPC [vpc](https://github.com/ABBANAPURI0445/devops-aws/blob/master/AWS/Cloudformation/vpc.json)
+   2. create subnet group [subnetgroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#aws-resource-rds-dbsubnet-group--examples)
+   3. create rds in private subnetgroup  
+
+
+
+
+## Topics 
+   1. RDS 
+       1. mysql
+       2. aurora  --> Pending 
+       3. maria
+       4. oracle
+       5. mssql
+       6. postgress 
+   2. NoSql 
+      1. DynamoDB 
+   3. dataware house
+      1. RedShift
+   4. cache 
+      1. elastic Caceh 
+      2. redis cache  
+   5. SQL VS Nosql 

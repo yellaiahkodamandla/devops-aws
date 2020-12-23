@@ -4,4 +4,14 @@
   - name: copy file from ACS to nodes 
     copy: 
       src: staticfile
-      dest: /home/ansible/static 
+      dest: /home/ansible/file
+  - name: copy template from ACS to nodes 
+    template:
+      src: dynamic.j2
+      dest: /home/ansible/template  
+
+
+## topics 
+   1. copy 
+   2. template 
+   3. inventory 
