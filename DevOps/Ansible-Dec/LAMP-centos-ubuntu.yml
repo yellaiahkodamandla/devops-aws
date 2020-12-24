@@ -1,0 +1,55 @@
+---
+- hosts: all 
+  become: yes 
+  vars: 
+    package_ubuntu_webserver: nginx 
+    package_centos_webserver: httpd 
+  tasks: 
+  - name: install apache2 on ubuntu 
+    apt: 
+       name: "{{ package_ubuntu_webserver }}"
+       update_cache: yes   
+       state: present 
+    when: ansible_os_family == "Debian"
+  - name: install multiple packages using with items 
+    apt: 
+       name: "{{ item }}"
+       state: present 
+    with_items: 
+       - php
+       - libapache2-mod-php
+       - php-mysql  
+    when: ansible_os_family == "Debian"
+  - name: restart apache2 service
+    service: 
+      name: "{{ package_ubuntu_webserver }}"
+      state: restarted 
+    when: ansible_os_family == "Debian"
+  - name: install lamp on centos 
+    yum: 
+     name: "{{ package_centos_webserver }}"
+     state: present  
+    when: ansible_os_family == "RedHat"
+  - name: start and enable service 
+    systemd:
+      name: "{{ package_centos_webserver }}"
+      state: started
+      enabled: yes  
+    when: ansible_os_family == "RedHat"
+  - name: install php and php-mysql 
+    yum: 
+     name: "{{ item }}"
+     state: present 
+    loop: 
+     - php
+     - php-mysql
+    when: ansible_os_family == "RedHat"
+  - name: restart httpd service
+    service: 
+      name: "{{ package_centos_webserver }}"
+      state: restarted 
+    when: ansible_os_family == "RedHat"
+  - name: copy file to nodes 
+    copy: 
+     src: info.php
+     dest: /var/www/html/info.php 
