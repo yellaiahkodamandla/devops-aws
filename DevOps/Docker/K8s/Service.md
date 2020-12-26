@@ -29,3 +29,7 @@
    2. expose application using ingress-controler (http)
    3. secure application with https (jetstack and secret) , ssl/tls , self-signed and CA
    4. PVC 
+
+## Service 
+   1. clusterIP --> 
+   2. NodePort 

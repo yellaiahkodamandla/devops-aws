@@ -5,7 +5,7 @@ metadata:
   labels: 
     deploy: app 
 spec: 
-  replicas: 5 
+  replicas: 3
   selector: 
     matchLabels:
       app: deploy
@@ -20,10 +20,6 @@ spec:
           name: appserver
           ports: 
           - containerPort: 8080 
-
-
-          selfsigning-issuer  
-
 
 
 

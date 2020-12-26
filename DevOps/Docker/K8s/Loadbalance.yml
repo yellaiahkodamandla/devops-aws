@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: lb-service 
+spec: 
+  selector: 
+     web: nginx 
+  type: LoadBalancer    ## NLB 
+  ports: 
+  - port: 80 
+    targetPort: 80  

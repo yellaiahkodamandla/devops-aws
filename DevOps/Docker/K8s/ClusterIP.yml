@@ -4,6 +4,6 @@ metadata:
    name: clusterip
 spec: 
   selector: 
-    web: server
-  type: ClusterIP 
+    app: deploy
+  type: ClusterIP  
   
