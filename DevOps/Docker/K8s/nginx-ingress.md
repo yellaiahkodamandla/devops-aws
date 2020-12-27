@@ -32,6 +32,10 @@
 5. service manifest
 6. ingress manifest file (in backend we need to specify service name) 
 7. apply all manifest files 
-8.  kubectl get ingress  
+8. kubectl get ingress  
+9. apply certificates using jetstack certificate controller manager  
+
+
+helm install  my-release  jetstack/cert-manager
 
 

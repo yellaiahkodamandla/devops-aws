@@ -1,9 +1,10 @@
 apiVersion: v1
 Kind: Service
 metadata: 
-   name: clusterip
+   name: nginx 
 spec: 
   selector: 
-    app: deploy
-  type: ClusterIP  
+     web: nginx
+  ports: 
+  - port: 80  
   
