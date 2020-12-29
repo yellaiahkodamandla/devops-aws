@@ -5,6 +5,7 @@
    4. ansible roles 
    5. ansible Tower 
    6. ansible.cfg  -->   
+   7. ingnore errors
 
 ## Handlers: 
    1. its like task 
