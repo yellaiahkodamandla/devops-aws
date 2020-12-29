@@ -16,4 +16,5 @@ spec:
       paths:
       - backend:
           serviceName: nginx
-          servicePort: 80 
+          servicePort: 80        
+  

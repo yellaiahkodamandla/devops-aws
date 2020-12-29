@@ -16,12 +16,15 @@
      state: present 
     loop: 
      - php
-     - php-mysql
-  - name: restart httpd service
-    service: 
-      name: httpd
-      state: restarted 
-  - name: copy file to nodes 
+     - php-mysql 
+    notify: 
+      - restart httpd
+ 
     copy: 
      src: info.php
      dest: /var/www/html/info.php 
+  handlers: 
+  - name: restart httpd 
+    systemd: 
+       name: httpd
+       state: restarted 

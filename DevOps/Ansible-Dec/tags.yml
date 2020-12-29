@@ -1,0 +1,29 @@
+--- 
+- hosts: all 
+  become: yes
+  tasks: 
+  - name: install wget 
+    apt: 
+      name: wget 
+      state: present 
+    tags: wget 
+  - name: install htop 
+    apt: 
+      name: htop 
+      state: present 
+    tags: htop 
+  - name: install apache2 
+    apt: 
+      name: apache2
+      state: present 
+    tags: apache
+  - name: create file 
+    file: 
+      path: /home/ansible/some.txt 
+      state: touch 
+    tags: file
+  - name: create directory 
+    file: 
+      path: /home/ansible/olddir 
+      state: directory 
+    tags: dir 
