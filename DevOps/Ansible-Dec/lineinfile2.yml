@@ -1,0 +1,7 @@
+- hosts: all 
+  tasks: 
+  - name: lineinfile 
+    lineinfile:
+       path: /home/ansible/test1/file1 
+       regexp: '192.168.1.99'
+       line: 10.0.0.15 foo.lab.net foo

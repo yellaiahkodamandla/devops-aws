@@ -1,0 +1,24 @@
+--- 
+- hosts: webserver 
+  tasks: 
+  - name: create directory 
+    file: 
+      path: /home/ansible/{{ item }}
+      state: directory 
+    loop: 
+     - test1 
+     - test2  
+  - name: create multiple files in test1 
+    file: 
+      path: /home/ansible/test1/{{ item }}
+      state: touch 
+    loop: 
+     - file1
+     - file2 
+  - name: create multople files in test2 
+    file: 
+      path:  /home/ansible/test2/{{ item }}
+      state: touch 
+    loop: 
+     - file1 
+     - file2 

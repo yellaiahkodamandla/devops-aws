@@ -37,7 +37,3 @@
    - name: create directory 
      command: mkdir /home/ansible/somedir   
 
-
-
-
-

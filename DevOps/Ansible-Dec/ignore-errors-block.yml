@@ -1,0 +1,25 @@
+- hosts: all 
+  tasks: 
+  - name: ignore errors 
+    block: 
+      - name: display list of file in test1 
+        command: "ls /home/ansible/test1" 
+        register: test1_out
+      - name: debug output
+        debug: 
+          var=test1_out.stdout_lines
+      - name: display list of file in test3 
+        command: "ls /home/ansible/test3" 
+        register: test3_out
+      - name: debug output iin test3 
+        debug: 
+          var=test3_out.stdout_lines 
+      - name: display list of file in test3 
+        command: "ls /home/ansible/test2"
+        register: test2_out
+      - name: debug output iin test2 
+        debug: 
+          var=test2_out.stdout_lines  
+    ignore_errors: yes 
+    when: ansible_os_family != "Debian"
+  
