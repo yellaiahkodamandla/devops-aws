@@ -23,7 +23,14 @@
    17. loop , with_items, array 
    18. roles 
    19. cloud modules --> ec2 , s3 (python boto3 sdk)
-   20. db modules ---> database 
+   20. db modules ---> database , Mysql 
    21. n/w modules 
    22. ansible tower UI 
-   23. add hoc 
+   23. ad-hoc commands 
+   24. include playbook and include vars 
+
+
+sudo apt update
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible -y
