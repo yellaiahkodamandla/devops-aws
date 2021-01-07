@@ -14,7 +14,7 @@
             type = string 
             default = "Infra"
         }
-     ```
+      ```
 
    2. how to pass variable in command line (Luanch ec2 machine with ubuntu 20.04) and change instance type t2.large and change key name(terraform)
       ```
