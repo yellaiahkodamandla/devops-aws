@@ -1,0 +1,15 @@
+## Terraform 
+    1. Provider   ---> access key and secret key and where do you want create infra eg: aws , azure , gcp , Openstack  
+    2. Variable
+        1. variable 
+        2. how to pass variable in command line 
+        3. tfvars or tfvars.json 
+    3. Resource  eg: vpc , ec2 and subnet etc
+    4. Provisioner:  only for Virtual machines 
+                    1. remote-exec 
+                    2. local-exec 
+                    3. chef
+                    4. puppet
+                    5. salt
+                    6. file provisoner 
+    5. output  
